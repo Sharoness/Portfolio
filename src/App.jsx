@@ -1,6 +1,6 @@
 import React from 'react';
+import Project from './Project.jsx';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper } from '@material-ui/core';
 
 const useStyles = makeStyles({
   container: {
@@ -35,22 +35,7 @@ const useStyles = makeStyles({
     justifyContent: "space-evenly",
     alignItems: "center",
   },
-  projectItem: {
-    alignSelf: "center",
-    padding: "20px",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: "50px"
-  },
-  projectItemTwo: {
-    textDecoration: "none",
-    color: "black",
-  },
-  smartphone: {
-    maxWidth: "300px",
-  }
+  
 })
 
 function App() {
@@ -71,25 +56,9 @@ function App() {
           Looking back at all my projects, I am most proud of the JavaScript Calculator. I feel like that one is a milestone. Below you can see the projects that I made. If you want to see them in full size, click on the name of the project which is shown under the phone.</p>
       </div>
       <div className={`${classes.item} ${classes.projects}`}>
-        <Paper className={classes.projectItem}>
-          <img src={`${process.env.PUBLIC_URL}/smartphone_black.svg`} alt="smartphone" className={`${classes.smartphone} ${classes.projectItemTwo}`}>
-            {/* calculator */}
-          </img><br />
-          <a href="https://sharoness.github.io/freecodecamp_React_P4_JS_Calculator_Functional/" target="_blank" rel="noopener noreferrer" className={classes.projectItemTwo}>JavaScript Calculator</a>
-        </Paper>
-        <Paper className={classes.projectItem}>
-          <img src={`${process.env.PUBLIC_URL}/smartphone_black.svg`} alt="smartphone" className={`${classes.smartphone} ${classes.projectItemTwo}`}>
-            {/* pomodoro clock */}
-          </img><br />
-          <a href="https://sharoness.github.io/freecodecamp_React_P5_Pomodoro_Clock/" target="_blank" rel="noopener noreferrer" className={classes.projectItemTwo}>Pomodoro Clock</a>
-        </Paper>
-        <Paper className={classes.projectItem}>
-          <img src={`${process.env.PUBLIC_URL}/smartphone_black.svg`} alt="smartphone" className={`${classes.smartphone} ${classes.projectItemTwo}`}>
-            {/* random quote machine */}
-          </img><br />
-          <a href="https://sharoness.github.io/freecodecamp_React_P1_Quotes/" target="_blank" rel="noopener noreferrer" className={classes.projectItemTwo}>Random Quote Machine</a>
-        </Paper>
-
+        <Project link={"https://sharoness.github.io/freecodecamp_React_P4_JS_Calculator_Functional/"} title={"JavaScript Calculator"}/>
+        <Project link={"https://sharoness.github.io/freecodecamp_React_P5_Pomodoro_Clock/"} title={"Pomodoro Clock"} />
+        <Project link={"https://sharoness.github.io/freecodecamp_React_P1_Quotes/"} title={"Random Quote Machine"} />
       </div>
     </div>
   );
