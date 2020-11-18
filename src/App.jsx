@@ -27,6 +27,14 @@ const useStyles = makeStyles({
     borderRadius: 3,
     boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
     height: "30vh",
+    '& h1': {
+      fontSize: "7vh",
+      color: "white"
+    },
+    '& h2': {
+      fontSize: "3vh",
+      color: "white"
+    },
   },
   projects: {
     display: "flex",
