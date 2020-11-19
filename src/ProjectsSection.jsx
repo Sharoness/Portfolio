@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     projects: {
-      width: "80vw",
       flexBasis: "auto",
       marginBottom: "30px",
       display: "flex",
