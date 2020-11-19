@@ -21,6 +21,7 @@ function ProjectsSection() {
         <Project link={"https://sharoness.github.io/freecodecamp_React_P4_JS_Calculator_Functional/"} title={"JavaScript Calculator"}/>
         <Project link={"https://sharoness.github.io/freecodecamp_React_P5_Pomodoro_Clock/"} title={"Pomodoro Clock"} />
         <Project link={"https://sharoness.github.io/freecodecamp_React_P1_Quotes/"} title={"Random Quote Machine"} />
+        <Project link={"https://sharoness.github.io/freecodecamp_React_P2_Markdown_Previewer/"} title={"Markdown Previewer"} />
     </div>
   );
 }
