@@ -1,26 +1,72 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Paper, Typography } from '@material-ui/core';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const useStyles = makeStyles({
     item: {
         width: "80vw",
         flexBasis: "auto",
         marginBottom: "30px",
-        
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+        alignContent: "space-between"
     },
+    profile: {
+        maxWidth: "300px",
+    },
+    media: {
+        width: "300px",
+        height: "300px"
+    },
+    text: {
+        itemAlign: "center"
+    },
+    root: {
+        color: "black",
+    }
 })
 
 function About() {
   const classes = useStyles();
+
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+        fetch('https://api.github.com/users/sharoness')
+            .then(response => response.json())
+            .then(data => setUser(data));
+    }, [])
+ 
+    
   return (
     <div className={classes.item}>
-        <p>My name is Sharon Grashuis, a Dutch Front-End Web Developer who is currently living in London, UK.</p>
-        <p>In July 2019 I started the journey of becoming a web developer, by taking lessons at FreeCodeCamp.org. At this website you can earn certifications by completing projects of the topic of the certification. <br />
-            I started with learning <b>HTML</b>, <b>CSS</b> and <b>responsive web design</b>, where I earned the <i><b>Responsive Web Design Certification</b></i>. <br />
-            Next up was the <b><i>JavaScript Algorithms and Data Structures Certification</i></b>, where I learned the basics of <b>JavaScript</b>, <b>Data Structures</b> and <b>Algorithm Scripting</b>. I also learned <b>ES6</b>, <b>Regular Expressions</b>, <b>Object Oriented Programming</b> and <b>Functional Programming</b>.<br />
-            After earning this certification, it was time to learn Front End Libraries. I covered <b>Bootstrap</b>, <b>jQuery</b>, <b>Sass</b>, and <b>React</b>. I recently earned the <b><i>Front End Libraries Certification</i></b>.</p>
-        <p>If I take a look at all the progress that I made in the past year and a half, I am impressed that I learned so much about, and am now familiar with all those topics within this time period. 
-            Looking back at all my projects, I am most proud of the JavaScript Calculator. I feel like that one is a milestone. Below you can see the projects that I made. If you want to see them in full size, click on the name of the project which is shown under the phone.</p>
+        <Paper elevation={4}>
+            <Card className={classes.profile} variant="outlined">
+                <CardActionArea>
+                    <CardMedia 
+                        className={classes.media} 
+                        image={user.avatar_url} 
+                        title="avatar" 
+                    />
+                    <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                {user.name}<a style={{marginLeft: "60px"}} href={user.html_url} target="_blank" rel="noopener noreferrer"><GitHubIcon classes={{root: classes.root}} /></a>
+                            </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            Location: {user.location}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
+        </Paper>
+        
+        <div className={classes.text}>
+            text
+        </div>
     </div>
   );
 }
