@@ -28,6 +28,7 @@ const useStyles = makeStyles({
         flexGrow: "2",
         paddingTop: "10px",
         paddingLeft: "10px",
+        fontSize: "20px"
     },
     link: {
     },

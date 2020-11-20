@@ -4,6 +4,25 @@ import About from './About.jsx';
 import ProjectsSection from './ProjectsSection.jsx';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      "Darker Grotesque",
+      "sans-serif"
+    ].join(","),
+  }
+})
+
+const headerFont = createMuiTheme({
+  typography: {
+    fontFamily: [
+      "Kumbh Sans",
+      "sans-serif"
+    ].join(","),
+  }
+})
 
 const useStyles = makeStyles({
   container: {
@@ -23,13 +42,17 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles();
   return (
-    <div className={classes.container}>
-      <Header />
-      <Container className="containerComponent">
-      <About />
-      <ProjectsSection />
-      </Container>
-    </div>
+      <div className={classes.container}>
+      <ThemeProvider theme={theme}>
+        <ThemeProvider theme={headerFont}>
+          <Header />
+        </ThemeProvider>
+        <Container className="containerComponent">
+          <About />
+          <ProjectsSection />
+        </Container>
+        </ThemeProvider>
+      </div>
   );
 }
 

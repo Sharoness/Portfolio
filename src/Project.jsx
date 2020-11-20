@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
     projectItem: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles({
         border: "none",
     },
     titleLink: {
-        
+        fontSize: "20px"
     }
 })
 
@@ -38,7 +39,9 @@ function Project({link, title}) {
     <div className={classes.projectItem}>
         <img src={`${process.env.PUBLIC_URL}/smartphone_black.svg`} alt="smartphone" className={`${classes.smartphone} ${classes.projectItemTwo}`}></img>
         <iframe src={link} title={title} className={`${classes.iframe} ${classes.projectItemTwo}`} />
-        <a href={link} target="_blank" rel="noopener noreferrer" className={`${classes.titleLink} ${classes.projectItemTwo}`}>{title}</a>
+        <Typography>
+            <Link href={link} target="_blank" rel="noopener noreferrer" className={`${classes.titleLink} ${classes.projectItemTwo}`}>{title}</Link>
+        </Typography>
     </div>
   );
 }

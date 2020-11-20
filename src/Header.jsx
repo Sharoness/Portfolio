@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
     title: {
@@ -11,11 +12,13 @@ const useStyles = makeStyles({
         boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
         height: "30vh",
         '& h1': {
-          fontSize: "7vh",
-          color: "white"
+          fontSize: "10vh",
+          color: "white",
+          marginTop: "30px",
+          marginBottom: "10px"
         },
         '& h2': {
-          fontSize: "3vh",
+          fontSize: "5vh",
           color: "white"
         },
     },
@@ -28,9 +31,10 @@ const useStyles = makeStyles({
 function Header() {
   const classes = useStyles();
   return (
+    
     <div className={`${classes.item} ${classes.title}`}>
-        <h1>Portfolio</h1>
-        <h2>Sharon Grashuis</h2>
+      <Typography variant="h1">Portfolio</Typography>
+      <Typography variant="h2">Sharon Grashuis</Typography>
     </div>
   );
 }
